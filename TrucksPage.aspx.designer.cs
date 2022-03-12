@@ -60,15 +60,6 @@ namespace kargo_tms
         protected global::System.Web.UI.WebControls.Button btnSubmit;
 
         /// <summary>
-        /// dataTable control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView dataTable;
-
-        /// <summary>
         /// hdnRejectID control.
         /// </summary>
         /// <remarks>
@@ -87,21 +78,30 @@ namespace kargo_tms
         protected global::System.Web.UI.WebControls.HiddenField hdnRejectEmail;
 
         /// <summary>
-        /// txtRejectReason control.
+        /// dataTable control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtRejectReason;
+        protected global::System.Web.UI.WebControls.GridView dataTable;
 
         /// <summary>
-        /// btnReject control.
+        /// ddlStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnReject;
+        protected global::System.Web.UI.WebControls.DropDownList ddlStatus;
+
+        /// <summary>
+        /// btn_update control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_update;
     }
 }

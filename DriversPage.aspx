@@ -21,7 +21,8 @@
                 <br />
                 <br />
 
-               
+                                       <asp:HiddenField ID="hdnRejectID" runat="server" />
+               <asp:HiddenField ID="hdnRejectEmail" runat="server" />
 
                 <asp:GridView ID="dataTable" runat="server" CssClass="table table-hover table-striped" ShowHeaderWhenEmpty="True" AllowPaging="False" AutoGenerateColumns="False" GridLines="None" >
                         <Columns>
@@ -31,19 +32,30 @@
                             <asp:BoundField DataField="id_card" HeaderText="ID Card" HeaderStyle-CssClass="bg-success text-white" />
                             <asp:BoundField DataField="driver_license" HeaderText="License" HeaderStyle-CssClass="bg-success text-white" />
                             <asp:BoundField DataField="status_desc" HeaderText="Status" HeaderStyle-CssClass="bg-success text-white" />
-                         <%--   <asp:TemplateField HeaderText="Action">
+                                <asp:TemplateField HeaderText="Action">
                                 <ItemTemplate>
          
-                                    <asp:Button ID="btnmodalEdit" runat="server" Text="Edit" CssClass="btn btn-danger" data-toggle="modal" data-target="#modalEdit"  Width="90" />
+                                    <asp:Button ID="btnmodalEdit" runat="server" Text="Edit" CssClass="btn btn-danger" data-toggle="modal" OnClientClick='<%#  "rejectID(\""+ Eval("driver_id") +"\", \""+ Eval("driver_name") +"\"); return false;" %>'  Width="90" />
                                 </ItemTemplate>
-                            </asp:TemplateField>--%>
+                            </asp:TemplateField>
                      
                         </Columns>
                     </asp:GridView>
+
+
+
+
             </div>
         </div>
     </div>
+    
+             <div id ="modal"  style="display :none;">
 
+                      <asp:DropDownList ID="ddlStatus" runat="server" CssClass="form-control select2" Style="width: 100%;">
+                </asp:DropDownList>
+
+                      <asp:button id="btn_update" runat="server" type="button" Cssclass="btn btn-success mt-2 pl-3 pr-3 float-right" text="Update" onclick="btnUpdate_Click"/>
+                </div>
 
 
 <%--    <div class="modal fade" id="modalEdit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -75,7 +87,19 @@
                 $("#<%= dataTable.ClientID %>").dataTable();
 
 
-             });
+            });
+
+        function rejectID(shipment_id, shipment_number) {
+
+            $("#<%= hdnRejectID.ClientID%>").val(shipment_id);
+            $("#<%= hdnRejectEmail.ClientID%>").val(shipment_number);
+
+            $("#modal").css("display", "block");
+
+            console.log(shipment_id);
+            console.log(shipment_number);
+        }
+
 
    <%--         function editHazard(Channel_Code, Description, CIRCULATE, LICENSE, HAZARD_CLASS) {
                 $("#<%= ddlChannel_Edit.ClientID %>").val(Channel_Code.split(",")).change();

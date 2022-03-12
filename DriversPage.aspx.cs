@@ -16,33 +16,31 @@ namespace kargo_tms
             {
                 if (!Page.IsPostBack)
                 {
-                    //loadDdls();
-                    loadDriver();
+                loadDdls();
+                loadDriver();
                 }
 
             }
 
-            //private void loadDdls()
-            //{
-            //    ddlType.Items.Clear();
-            //    ddlLicenseType.Items.Clear();
-
-            //    ddlLicenseType.Items.Add(new ListItem("Black", "Black"));
-            //    ddlLicenseType.Items.Add(new ListItem("Yellow", "Yellow"));
+        private void loadDdls()
+        {
+            ddlStatus.Items.Clear();
 
 
 
-            //    DataTable dt = queryData.DbQuerySelect("select * from tbl_truck_type");
-            //    if (dt.Rows.Count > 0)
-            //    {
-            //        for (int i = 0; i < dt.Rows.Count; i++)
-            //        {
-            //            ddlType.Items.Add(new ListItem(dt.Rows[i]["type_desc"].ToString(), dt.Rows[i]["truck_type_id"].ToString()));
-            //        }
-            //    }
-            //}
+            DataTable dt = queryData.DbQuerySelect("select * from [Kargo].[dbo].[tbl_truck_status]");
+            if (dt.Rows.Count > 0)
+            {
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    ddlStatus.Items.Add(new ListItem(dt.Rows[i]["status_desc"].ToString(), dt.Rows[i]["truck_status_id"].ToString()));
 
-            private void loadDriver()
+                }
+
+            }
+        }
+
+        private void loadDriver()
             {
                 var dt = new DataTable();
                 dt = queryData.DbQuerySelect("    select td.* , tds.status_desc from tbl_driver td,tbl_driver_status tds where td.status = tds.driver_status_id");
@@ -95,38 +93,63 @@ namespace kargo_tms
 
             }
 
+        protected void btnUpdate_Click(object sender, EventArgs e)
+        {
 
-            //protected void btnEdit_Click(object sender, EventArgs e)
-            //{
 
-            //    string sb = "INSERT INTO [dbo].[tbl_trucks]" +
-            //"           ([license_number]" +
-            //"           ,[truck_type]" +
-            //"           ,[plate_type]" +
-            //"           ,[production_year]" +
-            //"           ,[status]" +
-            //"           ,[kir])" +
-            //"     VALUES" +
-            //"           ('" + licenseNumber.Text + "'" +
-            //"           ,'" + ddlType.SelectedValue + "'" +
-            //"           ,'" + ddlLicenseType.SelectedValue + "'" +
-            //"           ,'" + prodYear.Text + "'" +
-            //"           ,1" +
-            //"           ,1)";
-
-            //    if (!queryData.DbQueryInsert(sb))
-            //    {
-            //        Response.Write("<script language=\"javascript\">alert('User Insert Gagal (Duplikat)');</script>");
-            //        return;
-
-            //    }
-            //    else
-            //    {
-            //        Response.Redirect(HttpContext.Current.Request.Url.ToString(), true);
-            //    }
+            string sb = "UPDATE [dbo].[tbl_driver]" +
+            "   SET [status] = '" + ddlStatus.SelectedValue + "'" +
+            " WHERE driver_id = '" + hdnRejectID.Value + "'";
 
 
 
-            //}
+            if (!queryData.DbQueryInsert(sb))
+            {
+                Response.Write("<script language=\"javascript\">alert('User Insert Gagal (Duplikat)');</script>");
+                return;
+
+            }
+            else
+            {
+                Response.Redirect(HttpContext.Current.Request.Url.ToString(), true);
+            }
+
+
+
         }
+
+
+        //protected void btnEdit_Click(object sender, EventArgs e)
+        //{
+
+        //    string sb = "INSERT INTO [dbo].[tbl_trucks]" +
+        //"           ([license_number]" +
+        //"           ,[truck_type]" +
+        //"           ,[plate_type]" +
+        //"           ,[production_year]" +
+        //"           ,[status]" +
+        //"           ,[kir])" +
+        //"     VALUES" +
+        //"           ('" + licenseNumber.Text + "'" +
+        //"           ,'" + ddlType.SelectedValue + "'" +
+        //"           ,'" + ddlLicenseType.SelectedValue + "'" +
+        //"           ,'" + prodYear.Text + "'" +
+        //"           ,1" +
+        //"           ,1)";
+
+        //    if (!queryData.DbQueryInsert(sb))
+        //    {
+        //        Response.Write("<script language=\"javascript\">alert('User Insert Gagal (Duplikat)');</script>");
+        //        return;
+
+        //    }
+        //    else
+        //    {
+        //        Response.Redirect(HttpContext.Current.Request.Url.ToString(), true);
+        //    }
+
+
+
+        //}
+    }
     }
