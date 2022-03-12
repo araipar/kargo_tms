@@ -34,10 +34,10 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-            <a class="nav-link" href="#">Trucks</a>
-            <a class="nav-link" href="#">Drivers</a>
-            <a class="nav-link" href="#">Shipments</a>  
+            <a class="nav-link active" aria-current="page" href="/Login">Home</a>
+    <%--        <a class="nav-link" href="#">Trucks</a>
+            <a class="nav-link" href="#">Drivers</a>--%>
+            <a class="nav-link" href="/ShipmentPage">Shipments</a>  
             </div>
         </div>
         </div>

@@ -28,6 +28,7 @@
                         <Columns>
                             <asp:BoundField DataField="shipment_id" HeaderText="ID" HeaderStyle-CssClass="bg-success text-white" />
                             <asp:BoundField DataField="shipment_number" HeaderText="Shipment Number" HeaderStyle-CssClass="bg-success text-white" />
+                            <asp:BoundField DataField="loading_date" HeaderText="Loading Date" HeaderStyle-CssClass="bg-success text-white" />
                             <asp:BoundField DataField="license_number" HeaderText="Truck License Number" HeaderStyle-CssClass="bg-success text-white" />
                             <asp:BoundField DataField="driver_name" HeaderText="Driver" HeaderStyle-CssClass="bg-success text-white" />
                             <asp:BoundField DataField="origin" HeaderText="Origin" HeaderStyle-CssClass="bg-success text-white" />
