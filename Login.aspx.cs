@@ -13,5 +13,19 @@ namespace kargo_tms
         {
 
         }
+
+        protected void btnLogin_Click(object sender, EventArgs e)
+        {
+            if (rdTransporter.Checked)
+            {
+
+                Session["role"] = "transporter";
+               Response.Redirect("TrucksPage.aspx");
+            }
+            else {
+                Session["role"] = "shipper";
+                Response.Redirect("ShipmentPage.aspx");
+            }
+        }
     }
 }
