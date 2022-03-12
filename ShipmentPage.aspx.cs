@@ -25,6 +25,9 @@ namespace kargo_tms
         {
             ddlDestination.Items.Clear();
             ddlOrigin.Items.Clear();
+            ddlTruck.Items.Clear();
+            ddlDriver.Items.Clear();
+            ddlStatus.Items.Clear();
 
 
             DataTable dt = queryData.DbQuerySelect("select * from tbl_district");
@@ -43,6 +46,36 @@ namespace kargo_tms
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
                     ddlDestination.Items.Add(new ListItem(dt.Rows[i]["district_name"].ToString(), dt.Rows[i]["district_id"].ToString()));
+
+                }
+
+            }
+            dt = queryData.DbQuerySelect("select * from [Kargo].[dbo].[tbl_shipment_status]");
+            if (dt.Rows.Count > 0)
+            {
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    ddlStatus.Items.Add(new ListItem(dt.Rows[i]["status_desc"].ToString(), dt.Rows[i]["shipment_status_id"].ToString()));
+
+                }
+
+            }
+            dt = queryData.DbQuerySelect("select * from tbl_trucks");
+            if (dt.Rows.Count > 0)
+            {
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    ddlTruck.Items.Add(new ListItem(dt.Rows[i]["license_number"].ToString(), dt.Rows[i]["truck_id"].ToString()));
+
+                }
+
+            }
+            dt = queryData.DbQuerySelect("select * from tbl_driver");
+            if (dt.Rows.Count > 0)
+            {
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    ddlDriver.Items.Add(new ListItem(dt.Rows[i]["driver_name"].ToString(), dt.Rows[i]["driver_id"].ToString()));
 
                 }
 
@@ -91,6 +124,35 @@ namespace kargo_tms
           "           ,'"+ddlDestination.SelectedValue+"'" +
           "           ,getDate()" +
           "           ,'1')";
+
+
+            if (!queryData.DbQueryInsert(sb))
+            {
+                Response.Write("<script language=\"javascript\">alert('User Insert Gagal (Duplikat)');</script>");
+                return;
+
+            }
+            else
+            {
+                Response.Redirect(HttpContext.Current.Request.Url.ToString(), true);
+            }
+
+
+
+        }
+
+
+        protected void btnUpdate_Click(object sender, EventArgs e)
+        {
+
+
+            string sb = "UPDATE [dbo].[tbl_shipment]" +
+            "   SET [shipment_number] = '"+ shpNumber.Text + "'" +
+            "      ,[truck_id] = '"+ ddlTruck.SelectedValue + "'" +
+            "      ,[driver_id] = '"+ ddlDriver.SelectedValue + "'" +
+            "      ,[status] = '"+ddlStatus.SelectedValue+"'" +
+            " WHERE shipment_id = '"+hdnRejectID.Value+"'";
+
 
 
             if (!queryData.DbQueryInsert(sb))
