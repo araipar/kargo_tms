@@ -58,6 +58,10 @@
             </div>
         </div>
         <div class="container body-content">
+
+            <link rel="stylesheet" type="text/css" href="potionLib/vendor/data_tables/jquery.dataTables.css">
+            <script src="Scripts/jquery.dataTables.js"></script>
+
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />
