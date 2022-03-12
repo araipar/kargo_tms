@@ -29,8 +29,69 @@
                 </li>
             </ul>
           </div>
-          <div class="col">
         </div>
+        <div class="row">
+            <div class="col-4">
+                <select id="trucksType" class="form-select" aria-label="Trucks Type Select">
+                    <option selected>Tronton</option>
+                    <option value="tronton">Tronton</option>
+                    <option value="container">Container</option>
+                    <option value="cde">CDE</option>
+                </select>
+            </div>
+            <div class="col-4 offset-4">
+                <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th scope="col">License Number</th>
+                        <th scope="col">Truck Type</th>
+                        <th scope="col">Plate Type</th>
+                        <th scope="col">Production Year</th>
+                        <th scope="col">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>B 2021 ABC</td>
+                        <td>Tronton</td>
+                        <td>Yellow</td>
+                        <td>
+                            <select id="trucksType" class="form-select" aria-label="Trucks Type Select">
+                                <option selected>Update</option>
+                            </select>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">2</th>
+                        <td>B 2021 CDE</td>
+                        <td>Container</td>
+                        <td>Yellow</td>
+                        <td>
+                            <select id="trucksType" class="form-select" aria-label="Trucks Type Select">
+                                <option selected>Update</option>
+                            </select>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">3</th>
+                        <td>B 2021 FGH</td>
+                        <td>CDE</td>
+                        <td>Black</td>
+                        <td>
+                            <select id="trucksType" class="form-select" aria-label="Trucks Type Select">
+                                <option selected>Update</option>
+                            </select>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
         </div>
     </div>
 
