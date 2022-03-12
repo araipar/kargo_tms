@@ -24,7 +24,7 @@ namespace kargo_tms
             }
             else {
                 Session["role"] = "shipper";
-                Response.Redirect("ShipmentPage.aspx");
+                Response.Redirect("ShipmentPage_sfn.aspx");
             }
         }
     }

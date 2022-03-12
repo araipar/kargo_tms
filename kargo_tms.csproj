@@ -158,6 +158,7 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="ShipmentPage.aspx" />
+    <Content Include="ShipmentPage_sfn.aspx" />
     <Content Include="Site.Master" />
     <Content Include="TrucksPage.aspx" />
     <Content Include="ViewSwitcher.ascx" />
@@ -214,6 +215,13 @@
     </Compile>
     <Compile Include="ShipmentPage.aspx.designer.cs">
       <DependentUpon>ShipmentPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ShipmentPage_sfn.aspx.cs">
+      <DependentUpon>ShipmentPage_sfn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShipmentPage_sfn.aspx.designer.cs">
+      <DependentUpon>ShipmentPage_sfn.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
