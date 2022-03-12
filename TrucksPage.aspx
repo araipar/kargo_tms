@@ -25,10 +25,10 @@
                 <asp:GridView ID="dataTable" runat="server" CssClass="table table-hover table-striped" ShowHeaderWhenEmpty="True" AllowPaging="False" AutoGenerateColumns="False" GridLines="None" >
                         <Columns>
                             <asp:BoundField DataField="Truck_ID" HeaderText="ID" HeaderStyle-CssClass="bg-success text-white" />
-                            <asp:BoundField DataField="license_number" HeaderText="Transaction Date" HeaderStyle-CssClass="bg-success text-white" />
-                            <asp:BoundField DataField="type_desc" HeaderText="Description" HeaderStyle-CssClass="bg-success text-white" />
-                            <asp:BoundField DataField="Plate_type" HeaderText="DebitCredit Status" HeaderStyle-CssClass="bg-success text-white" />
-                            <asp:BoundField DataField="Production_year" HeaderText="Amount" HeaderStyle-CssClass="bg-success text-white" />
+                            <asp:BoundField DataField="license_number" HeaderText="License Number" HeaderStyle-CssClass="bg-success text-white" />
+                            <asp:BoundField DataField="type_desc" HeaderText="Type" HeaderStyle-CssClass="bg-success text-white" />
+                            <asp:BoundField DataField="Plate_type" HeaderText="Plate Type" HeaderStyle-CssClass="bg-success text-white" />
+                            <asp:BoundField DataField="Production_year" HeaderText="Production Year" HeaderStyle-CssClass="bg-success text-white" />
                             <asp:TemplateField HeaderText="Action">
                                 <ItemTemplate>
          
